@@ -1,19 +1,17 @@
-#Deployment
-###controllers/pb-deploy.tml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: petclinic-deployment
 spec:
   replicas: 1
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-  minReadySeconds: 5
-  revisionHistoryLimit: 10
   selector:
     matchLabels:
       app: petclinic
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      minReadySeconds: 5
+  revisionHistoryLimit: 10
   template:
     metadata:
       labels:
@@ -34,6 +32,3 @@ spec:
         - containerPort: 8080
       imagePullSecrets:
       - name: regcred
-
-
-
