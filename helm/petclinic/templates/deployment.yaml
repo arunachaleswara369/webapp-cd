@@ -13,11 +13,11 @@ spec:
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: petclinic-app
+      app: petclinic
   template:
     metadata:
       labels:
-        app: petclinic-app
+        app: petclinic
     spec:
       containers:
       - name: petclinic-container
